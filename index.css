@@ -1,0 +1,92 @@
+
+
+body {
+    display: grid;
+    height: 90vh;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;     /* Centrar verticalmente */
+    background-color: rgb(29, 29, 29);
+    z-index: 1;
+}
+
+/* Board */
+#board {
+    display: grid;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color:black;
+    width: 300px;
+    height: 300px;
+    z-index: 2;
+}
+
+/* Player */
+#player {
+    position: absolute;
+    background-color:red;
+    width:20px;
+    height: 20px;
+    z-index: 3;
+    top: 140px;
+    left: 240px;
+}
+
+
+
+#bone {
+    position: relative;
+    background-color: white; 
+    width: 20px;
+    height: 100px;
+    border: 0px;
+    margin: 0px;
+    top: 0px;
+    left: -140px;
+    animation: move-right 1.5s infinite linear 1s;
+}
+
+@keyframes move-right{
+    0% {transform: translateX(-10px)}
+    50% {transform: translateX(280px);}
+    100% {transform: translateX(-10px);}
+}
+
+#bone2 {
+    position: relative;
+    background-color: white; 
+    width: 20px;
+    height: 100px;
+    border: 0px;
+    margin: 0px;
+    top: -190px;
+    box-sizing: border-box;
+    left: 0px;
+    rotate: 90deg;
+    animation: move-down 2s infinite linear 1s;
+    animation-composition: add;
+}
+
+@keyframes move-down {
+    0% {transform: translateY(-0px) rotate(0deg);}
+    50% {transform: translateX(280px) rotate(180deg);}
+    100% {transform: translateX(-0px) rotate(360deg);}
+}
+
+#coin {
+    position: absolute;
+    background-color:yellow;
+    width:10px;
+    height: 10px;
+    z-index: 3;
+}
+
+#coinCounter {
+    display: grid;
+    position: absolute;
+    color: white;
+    justify-self: center;
+    align-self: start;
+    top: -40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
