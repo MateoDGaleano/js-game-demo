@@ -8,10 +8,6 @@ let player = document.getElementById('player'); //Referencia al elemento player
 let board = document.getElementById('board'); //Referencia al elemento board
 
 //Bones//
-let xBone = -140;
-let yBone = 0;
-let xBone2 = 0;
-let yBone2 = -190;
 let bone = document.getElementById('bone'); //Referencia al elemento bone
 let bone2 = document.getElementById('bone2');
 
@@ -90,21 +86,27 @@ function updatePosition(){
     
     // Función para reiniciar el juego
     function resetGame() {
-        x = 140;
+        x = 40;
         y = 240;
        
         player.style.left = x + 'px';
         player.style.top = y + 'px';
 
-        xBone2 = 0;
-        yBone2 = -200;
+        xBone2 = 150;
+        yBone2 = -140;
 
         bone2.style.left = xBone2 + 'px';
         bone2.style.top = yBone2 + 'px';
 
-        coinCounterElement.textContent = 'Coins: ' + '0'
+        coinCounter = -1;
+        coinCounterElement.textContent = 'Coins: ' + coinCounter;
+        showTryAgainScreen();
 
-        alert("¡You lose.");
+    }
+
+    function showTryAgainScreen() {
+        board.style.display = 'none';
+        document.getElementById('endScreen').style.display = 'flex';
     }
 
     // Función para contar la moneda
@@ -139,9 +141,17 @@ function updatePosition(){
     
     setInterval(updatePosition, 1000 / 60);
 
+    function startGame() {
+        document.getElementById('startScreen').style.display = 'none';
+        document.getElementById('endScreen').style.display = 'none';
+        board.style.display = 'block';
+    }
 
 
-window.onload = startAutoMove;
+    window.onload = function() {
+        document.getElementById('startScreen').style.display = 'flex';
+        document.getElementById('body').style.display = 'flex';
+    };
 
 
 
