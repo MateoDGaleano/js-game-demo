@@ -162,3 +162,20 @@ body {
 canvas {
     display: block;
 }
+
+#timeCounter {
+    display: grid;
+    position: absolute;
+    color: white;
+    justify-self: center;
+    align-self: start;
+    top: -40px;
+    left: 290px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#background-music {
+    position: absolute;
+    left: 300px;
+    width: 100px;
+}

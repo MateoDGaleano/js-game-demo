@@ -18,6 +18,9 @@ let coin = document.getElementById('coin'); //Referencia al elemento coin
 let coinCounter = 0;
 let coinCounterElement = document.getElementById('coinCounter');
 
+let coinSound = document.getElementById('coin-sound');
+
+
 // Función para actualizar la posición del player
 function updatePosition(){  
      
@@ -98,7 +101,7 @@ function updatePosition(){
         bone2.style.left = xBone2 + 'px';
         bone2.style.top = yBone2 + 'px';
 
-        coinCounter = -1;
+        coinCounter = 0;
         coinCounterElement.textContent = 'Coins: ' + coinCounter;
         showTryAgainScreen();
 
@@ -107,12 +110,16 @@ function updatePosition(){
     function showTryAgainScreen() {
         board.style.display = 'none';
         document.getElementById('endScreen').style.display = 'flex';
+        n = -1;
+        timeCounterElemnt.textContent = n;
     }
 
+   
     // Función para contar la moneda
     function coinCount() {
     coinCounter++; // Incrementar contador de monedas
     coinCounterElement.textContent = 'Coins: ' + coinCounter;
+    coinSound.play();
     
 
     // Función para ubicar la moneda
@@ -140,6 +147,17 @@ function updatePosition(){
     });
     
     setInterval(updatePosition, 1000 / 60);
+
+
+    //Contador
+    var n = -1;
+    var l = document.getElementById("timeCounter");
+    window.setInterval(function(){
+    l.innerHTML = n;
+    n++;
+    },1000);
+    timeCounter.element.textContent = n;
+
 
     function startGame() {
         document.getElementById('startScreen').style.display = 'none';
